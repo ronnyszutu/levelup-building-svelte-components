@@ -12,11 +12,12 @@
         "juice",
         "Coke",
     ];
+    let search = '';
 </script>
 
-<h1>Welcome to Level UI</h1>
+<h1>Welcome to Level UI {search}</h1>
 
-<SearchFilter {items} />
+<SearchFilter {items} bind:search />
 
 <!-- <BetterAccordion isOpen={true} buttonText="Do I need a credit card?">
     <p>

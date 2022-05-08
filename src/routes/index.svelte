@@ -1,4 +1,5 @@
 <script>
+	import Markdown from '$lib/Markdown.svelte';
 	import SearchFilter from '$lib/SearchFilter.svelte';
     import Field from '$lib/Field.svelte'
     import BetterAccordion from '$lib/BetterAccordion.svelte'
@@ -14,9 +15,12 @@
         "Coke",
     ];
     let search = '';
+    let text = '';
+    $: console.log(text);
 </script>
 
 <h1>Welcome to Level UI {search}</h1>
+<Markdown bind:text />
 
 <Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
 <Field value={0} label="Number" type="number" />

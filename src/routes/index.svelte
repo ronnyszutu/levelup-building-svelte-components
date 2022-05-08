@@ -2,6 +2,7 @@
 	import Markdown from '$lib/Markdown.svelte';
 	import SearchFilter from '$lib/SearchFilter.svelte';
     import Field from '$lib/Field.svelte'
+    import Portal from '$lib/Portal.svelte';
     import BetterAccordion from '$lib/BetterAccordion.svelte'
     import Toggle from '$lib/Toggle.svelte'
     let isToggled = false;
@@ -20,7 +21,9 @@
 </script>
 
 <h1>Welcome to Level UI {search}</h1>
-<Markdown bind:text />
+<Portal>
+    <Markdown bind:text />
+</Portal>
 
 <Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
 <Field value={0} label="Number" type="number" />

@@ -1,5 +1,6 @@
 <script>
 	import SearchFilter from '$lib/SearchFilter.svelte';
+    import Field from '$lib/Field.svelte'
     import BetterAccordion from '$lib/BetterAccordion.svelte'
     import Toggle from '$lib/Toggle.svelte'
     let isToggled = false;
@@ -16,6 +17,9 @@
 </script>
 
 <h1>Welcome to Level UI {search}</h1>
+
+<Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
+<Field value={0} label="Number" type="number" />
 
 <SearchFilter {items} bind:search />
 

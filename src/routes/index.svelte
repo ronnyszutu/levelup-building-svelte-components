@@ -2,8 +2,10 @@
 	import Markdown from '$lib/Markdown.svelte';
 	import SearchFilter from '$lib/SearchFilter.svelte';
     import Field from '$lib/Field.svelte'
-    // import Portal from '$lib/Portal.svelte';
+    import Portal from '$lib/Portal.svelte';
     import Modal from '$lib/Modal.svelte';
+    import Toast from "$lib/toast/Toast.svelte";
+    import { toast } from '$lib/toast/toast'
     import BetterAccordion from '$lib/BetterAccordion.svelte'
     import Toggle from '$lib/Toggle.svelte'
     let isToggled = false;
@@ -35,7 +37,10 @@
     </div>
 </Modal>
 
-<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
+<Toast />
+
+<button on:click={() => toast.send('NEW MESSAGE!')}>New Toast</button>
+<!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
 <SearchFilter {items} bind:search />
 

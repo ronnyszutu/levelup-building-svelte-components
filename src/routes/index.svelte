@@ -2,7 +2,8 @@
 	import Markdown from '$lib/Markdown.svelte';
 	import SearchFilter from '$lib/SearchFilter.svelte';
     import Field from '$lib/Field.svelte'
-    import Portal from '$lib/Portal.svelte';
+    // import Portal from '$lib/Portal.svelte';
+    import Modal from '$lib/Modal.svelte';
     import BetterAccordion from '$lib/BetterAccordion.svelte'
     import Toggle from '$lib/Toggle.svelte'
     let isToggled = false;
@@ -17,16 +18,24 @@
     ];
     let search = '';
     let text = '';
-    $: console.log(text);
+    // $: console.log(text);
+    let isModalOpen = false;
+    
 </script>
 
 <h1>Welcome to Level UI {search}</h1>
-<Portal>
+<!-- <Portal>
     <Markdown bind:text />
-</Portal>
+</Portal> -->
 
-<Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
-<Field value={0} label="Number" type="number" />
+<Modal bind:isModalOpen>
+    <div style="background: white; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3)">
+        <Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
+        <Field value={0} label="Number" type="number" />
+    </div>
+</Modal>
+
+<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
 
 <SearchFilter {items} bind:search />
 

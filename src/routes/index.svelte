@@ -39,7 +39,7 @@
 
 <Toast />
 
-<button on:click={() => toast.send('NEW MESSAGE!')}>New Toast</button>
+<button on:click={() => toast.send('NEW MESSAGE!' + Math.random())}>New Toast</button>
 <!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
 <SearchFilter {items} bind:search />

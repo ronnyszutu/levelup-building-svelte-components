@@ -7,7 +7,14 @@ const newToast = () => {
 		update((store) => [...store, message]);
 	}
 
-	return { subscribe, send };
+	function remove() {
+		update((state) => {
+			let [first, ...rest] = state;
+			return [...rest];
+		});
+	}
+
+	return { subscribe, send, remove };
 };
 
 export const toast = newToast();

@@ -10,6 +10,7 @@ const newToast = () => {
 	function remove() {
 		update((state) => {
 			let [first, ...rest] = state;
+
 			return [...rest];
 		});
 	}

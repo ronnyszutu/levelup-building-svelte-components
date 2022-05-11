@@ -30,19 +30,20 @@
     <Markdown bind:text />
 </Portal> -->
 
-<Modal bind:isModalOpen>
+<Modal bind:isModalOpen background={true}>
     <div style="background: white; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3)">
         <Field bind:value={search} label="Search" instructions="Type to search" placeholder="Ice Water" />
         <Field value={0} label="Number" type="number" />
     </div>
 </Modal>
 
+<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
+
 <Toast duration={3000} />
 
 <button on:click={() => toast.send('NEW MESSAGE!')}>New Toast</button>
 <button on:click={() => toast.send('NEW MESSAGE 3000!', { duration: 3000})}>Duration 3000</button>
 <button on:click={() => toast.send('ERROR MESSAGE!', {duration: 5000, type: 'ERROR'})}>Error Message</button>
-<!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
 <SearchFilter {items} bind:search />
 

@@ -12,15 +12,15 @@
 
 <Portal>
 	<div class="toast-wrapper">
-		{#each $toast as message (message)}
+		{#each $toast as message (message.id)}
 			<div 
-				on:click={toast.remove} 
+				on:click={toast.remove(message.id)} 
 				animate:flip 
 				out:fade 
 				in:fly={{ opacity: 0, x: 100 }} 
-				class="toast"
+				class={`toast ${message.type.toLowerCase()}`}
 			>
-				<ToastMessage {message} {duration} />
+				<ToastMessage {message} />
 			</div>
 		{/each}
 	</div>
@@ -34,10 +34,18 @@
 	}
 	
 	.toast {
+		overflow: hidden;
+		position: relative;
 		margin-bottom: 1rem;
 		padding: 20px;
 		border-radius: 15px;
 		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-		background-color: white;
+		color: white;
+		background: var(--toast-background, #625df5);
+	}
+
+	.toast.error {
+		background: var(--toast-error-background, #e54b4b);
+		color: black;
 	}
 </style>

@@ -3,15 +3,22 @@ import { writable } from "svelte/store";
 const newToast = () => {
 	const { subscribe, update } = writable([]);
 
-	function send(message) {
-		update((store) => [...store, message]);
+	function send(message, { duration = 2000, type = 'INFO' } = {}) {
+		const id = Math.floor(Math.random() * 1000);
+		const newMessage = {
+			id,
+			duration,
+			type,
+			message
+		}
+		update((store) => [...store, newMessage]);
 	}
 
-	function remove() {
-		update((state) => {
-			let [first, ...rest] = state;
+	function remove(id) {
+		update((store) => {
+			let newStore = store.filter(item => item.id !== id);
 
-			return [...rest];
+			return [...newStore];
 		});
 	}
 

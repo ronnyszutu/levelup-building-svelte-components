@@ -39,7 +39,9 @@
 
 <Toast duration={3000} />
 
-<button on:click={() => toast.send('NEW MESSAGE!' + Math.random())}>New Toast</button>
+<button on:click={() => toast.send('NEW MESSAGE!')}>New Toast</button>
+<button on:click={() => toast.send('NEW MESSAGE 3000!', { duration: 3000})}>Duration 3000</button>
+<button on:click={() => toast.send('ERROR MESSAGE!', {duration: 5000, type: 'ERROR'})}>Error Message</button>
 <!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
 <SearchFilter {items} bind:search />
